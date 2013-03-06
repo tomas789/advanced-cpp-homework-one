@@ -7,11 +7,35 @@
 
 #include <vector>
 #include <ostream>
+#include <stdexcept>
 
 template <typename T> class matrix;
 template <typename T> class row_reference;
 template <typename T> class horizontal_iterator;
+template <typename T> class const_horizontal_iterator;
 
+/**
+ * Possibility for matrix print using standard C++ ways
+ */
+template <typename T>
+std::ostream& operator<<(std::ostream& out, const matrix<T> & matrix)
+{
+    for (auto row : matrix.data_) {
+        for (T item : row) out << item << " ";
+        out << std::endl;
+    } return out << std::endl;
+}
+
+template <typename T>
+std::ostream& operator<<(std::ostream& out, row_reference<T> & row)
+{
+    for (auto it : row) out << it << " ";
+    return out;
+}
+
+/**
+ * Pseudo-vector holding matrix rows
+ */
 template <typename T>
 class row_reference {
     matrix<T> * matrix_;
@@ -21,19 +45,58 @@ public:
     typedef T& reference;
     typedef T* pointer;
     typedef horizontal_iterator<T> iterator;
+    typedef const_horizontal_iterator<T> const_iterator;
     
     row_reference(matrix<T> * matrix, std::size_t row_number) : matrix_(matrix), row_(row_number) {};
     
-    reference operator[](std::size_t at) { return matrix_[row_][at]; };
+    reference operator[](std::size_t at) { return (*matrix_)[row_][at]; };
     
     iterator begin() { return iterator(this, 0); };
     iterator end() { return iterator(this, (*matrix_)[0].size()); };
-    
-    std::ostream& dump(std::ostream& out) { for (auto item : *this) out << *item << " "; return out; };
+    const_iterator cbegin() { return const_iterator(this, 0); };
+    const_iterator cend() { return const_iterator(this, (*matrix_)[0].size()); };
+    std::size_t size() { return (*matrix_)[row_].size(); }
 };
 
+/**
+ * const_iterator throught matrix rows
+ *
+ * iterator is small -> no move things
+ */
+template <typename T>
+class const_horizontal_iterator {
+protected:
+    row_reference<T> * row_;
+    std::size_t col_;
+    
+public:
+    typedef const T value_type;
+    typedef const T& reference;
+    typedef const T* pointer;
+    
+    typedef std::forward_iterator_tag iterator_category;
+    
+    const_horizontal_iterator();
+    const_horizontal_iterator(row_reference<T> * row, std::size_t col = 0) : row_(row), col_(col) { };
+    const_horizontal_iterator(horizontal_iterator<T> & it) : row_(it.row_), col_(it.col_) {};
+    
+    reference operator*() { return (*row_)[col_]; };
+    pointer operator->() { return &((*row_)[col_]); };
+    
+    bool operator!=(const_horizontal_iterator<T> it) const { return col_ != it.col_; };
+    bool operator==(const_horizontal_iterator<T> it) const { return col_ == it.col_; };
+    std::size_t operator++() { return ++col_; };
+    std::size_t operator++(int) { return ++col_; };
+};
+
+/**
+ * const_iterator throught matrix rows
+ *
+ * iterator is small -> no move things
+ */
 template <typename T>
 class horizontal_iterator {
+protected:
     row_reference<T> * row_;
     std::size_t col_;
     
@@ -47,14 +110,20 @@ public:
     horizontal_iterator();
     horizontal_iterator(row_reference<T> * row, std::size_t col = 0) : row_(row), col_(col) { };
     
-    reference operator*() { return row_[col_]; };
-    pointer operator->() { return &row_[col_]; };
+    reference operator*() { return (*row_)[col_]; };
+    pointer operator->() { return &((*row_)[col_]); };
     
+    bool operator!=(horizontal_iterator<T> it) const { return col_ != it.col_; };
     bool operator==(horizontal_iterator<T> it) const { return col_ == it.col_; };
     std::size_t operator++() { return ++col_; };
     std::size_t operator++(int) { return ++col_; };
 };
 
+/**
+ * Matrix container
+ *
+ * Class behaving like STL containers.
+ */
 template< typename T>
 class matrix
 {
@@ -71,19 +140,26 @@ public:
     matrix(std::size_t rows, std::size_t cols);
     matrix(std::size_t rows, std::size_t cols, T default_value);
     
-    matrix(const matrix<T> &matrix) : rows_(matrix.rows_), cols_(matrix.cols_) { data_ = matrix.data_; };
-    matrix(matrix<T> && matrix) : rows_(matrix.rows_), cols_(matrix.cols_) { data_ = std::move(matrix.data_); };
+    matrix(const matrix<T> &matrix) = default;
+    matrix(matrix<T> && matrix) = default;
     
     matrix<T>& operator=(const matrix<T> & matrix) = default;
     matrix<T>& operator=(matrix<T> && matrix) = default;
     
+    /**
+     * Random access to matrix items
+     */
     std::vector<T>& operator[](std::size_t i) { return data_[i]; };
+    
+    /**
+     * Random access to matrix items - safe, can produce exceptions
+     */
+    T& at(std::size_t row, std::size_t col) { return data_.at(row).at(col); };
     
     cols_t & cols() { return data_; };
     rows_t & rows() { return row_reference_; };
     
-    // Debug
-    std::ostream& dump(std::ostream& out);
+    template< typename K> friend std::ostream& operator<<(std::ostream& out, const matrix<K> & matrix);
 };
 
 template <typename T>
@@ -101,25 +177,6 @@ matrix<T>::matrix(std::size_t rows, std::size_t cols) : rows_(rows), cols_(cols)
     data_ = std::vector<std::vector<T>>(rows, row);
     for (unsigned i = 0; i < rows; ++i) row_reference_.push_back(row_reference_(this, i));
 }
-
-template <typename T>
-std::ostream& matrix<T>::dump(std::ostream& out)
-{
-    for (auto row : data_) {
-        for (T item : row)
-            out << item << " ";
-        out << std::endl;
-    } return out << std::endl;
-}
-
-/*
-template <typename T>
-matrix<T>& matrix<T>::operator=(matrix<T> &&matrix)
-{
-    rows_ = matrix.rows_;
-    cols_ = matrix.cols_;
-    data_ = std::move(matrix.data_);
-} */
 
 /**************************************************************************************************/
 

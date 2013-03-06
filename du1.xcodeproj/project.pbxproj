@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C4FCC7B16E76E0100B2A956 /* du1matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C4FCC7816E76E0100B2A956 /* du1matrix.cpp */; };
-		4C4FCC7C16E76E0100B2A956 /* du1test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C4FCC7A16E76E0100B2A956 /* du1test.cpp */; };
+		DA8A920D16E7DF9B00285D89 /* du1test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA8A920B16E7DF9B00285D89 /* du1test.cpp */; };
+		DA8A921016E7DFAD00285D89 /* du1matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA8A920E16E7DFAD00285D89 /* du1matrix.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +25,10 @@
 
 /* Begin PBXFileReference section */
 		4C4FCC6B16E76DEE00B2A956 /* du1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = du1; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C4FCC7716E76E0100B2A956 /* du1debug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = du1debug.hpp; path = "../../../Downloads/du1-1/du1debug.hpp"; sourceTree = "<group>"; };
-		4C4FCC7816E76E0100B2A956 /* du1matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = du1matrix.cpp; path = "../../../Downloads/du1-1/du1matrix.cpp"; sourceTree = "<group>"; };
-		4C4FCC7916E76E0100B2A956 /* du1matrix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = du1matrix.hpp; path = "../../../Downloads/du1-1/du1matrix.hpp"; sourceTree = "<group>"; };
-		4C4FCC7A16E76E0100B2A956 /* du1test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = du1test.cpp; path = "../../../Downloads/du1-1/du1test.cpp"; sourceTree = "<group>"; };
+		DA8A920B16E7DF9B00285D89 /* du1test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = du1test.cpp; sourceTree = "<group>"; };
+		DA8A920E16E7DFAD00285D89 /* du1matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = du1matrix.cpp; sourceTree = "<group>"; };
+		DA8A920F16E7DFAD00285D89 /* du1matrix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = du1matrix.hpp; sourceTree = "<group>"; };
+		DA8A921216E7E0E300285D89 /* du1debug.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = du1debug.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,10 +61,10 @@
 		4C4FCC6D16E76DEE00B2A956 /* du1 */ = {
 			isa = PBXGroup;
 			children = (
-				4C4FCC7716E76E0100B2A956 /* du1debug.hpp */,
-				4C4FCC7816E76E0100B2A956 /* du1matrix.cpp */,
-				4C4FCC7916E76E0100B2A956 /* du1matrix.hpp */,
-				4C4FCC7A16E76E0100B2A956 /* du1test.cpp */,
+				DA8A920B16E7DF9B00285D89 /* du1test.cpp */,
+				DA8A920E16E7DFAD00285D89 /* du1matrix.cpp */,
+				DA8A920F16E7DFAD00285D89 /* du1matrix.hpp */,
+				DA8A921216E7E0E300285D89 /* du1debug.hpp */,
 			);
 			path = du1;
 			sourceTree = "<group>";
@@ -120,8 +120,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C4FCC7B16E76E0100B2A956 /* du1matrix.cpp in Sources */,
-				4C4FCC7C16E76E0100B2A956 /* du1test.cpp in Sources */,
+				DA8A920D16E7DF9B00285D89 /* du1test.cpp in Sources */,
+				DA8A921016E7DFAD00285D89 /* du1matrix.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +218,7 @@
 				4C4FCC7616E76DEE00B2A956 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

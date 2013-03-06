@@ -22,14 +22,14 @@ class du_abort_exception : public std::exception
 private:
     virtual const char * what() const throw()
     {
-	return "du_abort_exception";
+        return "du_abort_exception";
     }
 };
 
 inline void du_abort( const char * s, const char * f, int l)
 {
     std::cout << f << "(" << l << "): " << s << std::endl;
-    throw du_abort_exception(); 
+    throw du_abort_exception();
 }
 
 #endif
