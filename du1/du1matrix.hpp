@@ -68,8 +68,6 @@ public:
     const_iterator cbegin() { return const_iterator(this, 0); };
     const_iterator cend() { return const_iterator(this, (*matrix_)[0].size()); };
     std::size_t size() { return (*matrix_)[row_].size(); }
-    
-    friend void matrix<T>::update_row_reference(matrix<T> * matrix);
 };
 
 /**
@@ -140,6 +138,7 @@ public:
  *
  * TODO : use construction { a, b, c } to initialize matrix
  * TODO : copy/move constructors and (move) assignment operators must update row_reference vector
+ * TODO : matrix.rows()[x][y] , matrix.cols()[x][y]
  */
 template< typename T>
 class matrix
@@ -162,8 +161,8 @@ public:
     matrix(const matrix<T> &matrix) = default;
     matrix(matrix<T> && matrix) = default;
     
-    matrix<T>& operator=(const matrix<T> & matrix) = default;
-    matrix<T>& operator=(matrix<T> && matrix) = default;
+    matrix<T>& operator=(matrix<T> & matrix);
+    matrix<T>& operator=(matrix<T> && matrix);
     
     /**
      * Random access to matrix items
@@ -179,8 +178,6 @@ public:
     rows_t & rows() { return row_reference_; };
     
     template< typename K> friend std::ostream& operator<<(std::ostream& out, const matrix<K> & matrix);
-    
-    void update_row_reference(matrix<T> * matrix);
 };
 
 /**
@@ -205,6 +202,30 @@ matrix<T>::matrix(std::size_t rows, std::size_t cols) : rows_(rows), cols_(cols)
     std::vector<T> row(cols);
     data_ = std::vector<std::vector<T>>(rows, row);
     for (unsigned i = 0; i < rows; ++i) row_reference_.push_back(row_reference_(this, i));
+}
+
+/**
+ * assignment operator
+ *
+ * TODO : use matrix<T> & matrix<T>::operator=(const matrix<T> & matrix)
+ */
+template <typename T>
+matrix<T> & matrix<T>::operator=(matrix<T> & matrix)
+{
+    // Copy data_
+    data_ = matrix.data_;
+
+    // Resize to correct size
+    for (auto vec : data_) vec.resize(cols_);
+    data_.resize(rows_, std::vector<T>(cols_));
+
+    // Refresh row_references
+    row_reference_.empty();
+    for (unsigned i = 0; i < rows_; ++i) row_reference_.push_back(row_reference<T>(this, i));
+
+    std::cout << data_.size() << " x " << data_[0].size() << std::endl;
+
+    return *this;
 }
 
 /**************************************************************************************************/

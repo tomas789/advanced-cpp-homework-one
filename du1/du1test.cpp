@@ -81,6 +81,8 @@ int main( int, char * *)
         // Matrix at
         
         // Matrix at exception
+
+        // Matrix of complex types
         
         // du_assert
         
@@ -98,14 +100,16 @@ int main( int, char * *)
         //b.dump(std::cout);
         
         c = b;
-        // c[0][2] = b[1][1];
-        
-        std::cout << c;
+        //c[0][2] = b[1][1];
+
+        //std::cout << c;
+
+        // TODO : zero (3 x 4) matrix before c matrix - WHY ?????
         
         std::for_each( c.rows().begin(), c.rows().end(), f4);
         
         my_matrix::cols_t::iterator rowit;
-        
+
         //	rowit->end();
         
     }
