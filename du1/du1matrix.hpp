@@ -3,6 +3,15 @@
 
 #include "du1debug.hpp"
 
+/**
+ * C++11 is required
+ *
+ * List of C++11 specific features
+ *  - range based for loop
+ *  - auto keyword
+ *  - move semantics
+ */
+
 /**************************************************************************************************/
 
 #include <vector>
@@ -26,6 +35,9 @@ std::ostream& operator<<(std::ostream& out, const matrix<T> & matrix)
     } return out << std::endl;
 }
 
+/**
+ * Row printing function - for debug purpose
+ */
 template <typename T>
 std::ostream& operator<<(std::ostream& out, row_reference<T> & row)
 {
@@ -56,6 +68,8 @@ public:
     const_iterator cbegin() { return const_iterator(this, 0); };
     const_iterator cend() { return const_iterator(this, (*matrix_)[0].size()); };
     std::size_t size() { return (*matrix_)[row_].size(); }
+    
+    friend void matrix<T>::update_row_reference(matrix<T> * matrix);
 };
 
 /**
@@ -122,7 +136,10 @@ public:
 /**
  * Matrix container
  *
- * Class behaving like STL containers.
+ * Class behaving like STL containers. 
+ *
+ * TODO : use construction { a, b, c } to initialize matrix
+ * TODO : copy/move constructors and (move) assignment operators must update row_reference vector
  */
 template< typename T>
 class matrix
@@ -131,6 +148,8 @@ class matrix
     std::vector<row_reference<T>> row_reference_;
     std::size_t rows_;
     std::size_t cols_;
+    
+    
     
 public:
     typedef std::vector<std::vector<T>> cols_t;
@@ -160,8 +179,15 @@ public:
     rows_t & rows() { return row_reference_; };
     
     template< typename K> friend std::ostream& operator<<(std::ostream& out, const matrix<K> & matrix);
+    
+    void update_row_reference(matrix<T> * matrix);
 };
 
+/**
+ * Constructor with dimensions and default value 
+ *
+ * TODO : Can I use implicit value for default_value parameter to avoid additional constructor? (T default_value = T() ?? )
+ */
 template <typename T>
 matrix<T>::matrix(std::size_t rows, std::size_t cols, T default_value) : rows_(rows), cols_(cols)
 {
@@ -170,6 +196,9 @@ matrix<T>::matrix(std::size_t rows, std::size_t cols, T default_value) : rows_(r
     for (unsigned i = 0; i < rows; ++i) row_reference_.push_back(row_reference<T>(this, i));
 }
 
+/**
+ * Constructor with dimensions
+ */
 template <typename T>
 matrix<T>::matrix(std::size_t rows, std::size_t cols) : rows_(rows), cols_(cols)
 {

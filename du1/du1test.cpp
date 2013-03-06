@@ -26,9 +26,9 @@ void f3( my_matrix::rows_t::value_type::reference x)
 
 void f4( my_matrix::rows_t::reference r)
 {
-    std::cout << r << std::endl;
-    //std::for_each( r.begin(), r.end(), f3);
-    //std::cout << std::endl;
+    //std::cout << r << std::endl;
+    std::for_each( r.begin(), r.end(), f3);
+    std::cout << std::endl;
 }
 
 
@@ -99,6 +99,8 @@ int main( int, char * *)
         
         c = b;
         // c[0][2] = b[1][1];
+        
+        std::cout << c;
         
         std::for_each( c.rows().begin(), c.rows().end(), f4);
         
