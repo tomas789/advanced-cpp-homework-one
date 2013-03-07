@@ -3,9 +3,10 @@
 
 #include <iostream>
 #include <algorithm>
+#include <complex>
 
 
-typedef matrix< int> my_matrix;
+typedef matrix< std::complex<int>> my_matrix;
 
 int cnt = 100;
 
@@ -45,48 +46,79 @@ int main( int, char * *)
         // TESTS
         
         // Matrix no parametr constructor
+        std::cout << "TEST A" << std::endl;
+        matrix<int> test_a;
+        std::cout << test_a;
         
         // Matrix dimensions constructor
+        std::cout << "TEST B" << std::endl;
+        matrix<int> test_b(3, 4);
+        std::cout << test_b;
         
         // Matrix dimensions constructor with default value
+        std::cout << "TEST C" << std::endl;
+        matrix<int> test_c(3, 4, 5);
+        std::cout << test_c;
         
         // Matrix copy constructor
+        std::cout << "TEST D" << std::endl;
+        matrix<int> test_d(test_c);
+        std::cout << test_d;
         
         // Matrix move constructor
+        std::cout << "TEST E" << std::endl;
+        matrix<int> test_e(std::move(test_c));
+        std::cout << test_e;
         
         // Matrix assignment operator
+        std::cout << "TEST F" << std::endl;
+        matrix<int> test_f(5, 5);
+        test_f = test_e;
+        std::cout << test_f;
         
         // Matrix assignment move operator
-        
-        // Matrix copy constructor from different dimensions
-        
-        // Matrix assignment operator from different dimensions
-        
-        // Matrix for_each throught rows and then cols
-        
-        // Matrix for_each throught cols and then rows
+        std::cout << "TEST G" << std::endl;
+        matrix<int> test_g(6,6);
+        test_g = std::move(test_f);
+        std::cout << test_g;
         
         // Iterator prefix increment
+        std::cout << "TEST L" << std::endl;
+        matrix<int> test_l(3, 4, 5);
+        horizontal_iterator<int> it_l = test_l.rows()[0].begin();
+        it_l++;
         
         // Iterator postfix increment
+        std::cout << "TEST M" << std::endl;
+        auto it_m = ++it_l;
         
         // Const_iterator prefix increment
+        std::cout << "TEST N" << std::endl;
+        matrix<int> test_n(3, 4, 5);
+        const_horizontal_iterator<int> 
         
         // Const_iterator postfix increment
+        std::cout << "TEST O" << std::endl;
         
         // Iterator increment on end()
+        std::cout << "TEST P" << std::endl;
         
         // Const_iterator increment on end()
+        std::cout << "TEST Q" << std::endl;
         
         // Matrix at
+        std::cout << "TEST R" << std::endl;
         
         // Matrix at exception
+        std::cout << "TEST S" << std::endl;
 
         // Matrix of complex types
+        std::cout << "TEST T" << std::endl;
         
         // du_assert
+        std::cout << "TEST U" << std::endl;
         
-        my_matrix a( 3, 4, 0);  // matice 3 radky * 4 sloupce inicializovana nulami
+        my_matrix a( 10, 4, 0);  // matice 3 radky * 4 sloupce inicializovana nulami
         
         
         my_matrix c = a;
@@ -103,8 +135,6 @@ int main( int, char * *)
         //c[0][2] = b[1][1];
 
         //std::cout << c;
-
-        // TODO : zero (3 x 4) matrix before c matrix - WHY ?????
         
         std::for_each( c.rows().begin(), c.rows().end(), f4);
         

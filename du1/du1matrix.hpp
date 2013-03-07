@@ -47,6 +47,8 @@ std::ostream& operator<<(std::ostream& out, row_reference<T> & row)
 
 /**
  * Pseudo-vector holding matrix rows
+ *
+ * TODO : what should end(), cend() return on matrix 0x0
  */
 template <typename T>
 class row_reference {
@@ -88,9 +90,9 @@ public:
     
     typedef std::forward_iterator_tag iterator_category;
     
-    const_horizontal_iterator();
+    const_horizontal_iterator() { };
     const_horizontal_iterator(row_reference<T> * row, std::size_t col = 0) : row_(row), col_(col) { };
-    const_horizontal_iterator(horizontal_iterator<T> & it) : row_(it.row_), col_(it.col_) {};
+    const_horizontal_iterator(horizontal_iterator<T> & it) : row_(it.row_), col_(it.col_) { };
     
     reference operator*() { return (*row_)[col_]; };
     pointer operator->() { return &((*row_)[col_]); };
@@ -119,7 +121,7 @@ public:
     
     typedef std::forward_iterator_tag iterator_category;
     
-    horizontal_iterator();
+    horizontal_iterator() { };
     horizontal_iterator(row_reference<T> * row, std::size_t col = 0) : row_(row), col_(col) { };
     
     reference operator*() { return (*row_)[col_]; };
@@ -136,8 +138,6 @@ public:
  *
  * Class behaving like STL containers. 
  *
- * TODO : use construction { a, b, c } to initialize matrix
- * TODO : copy/move constructors and (move) assignment operators must update row_reference vector
  * TODO : matrix.rows()[x][y] , matrix.cols()[x][y]
  */
 template< typename T>
@@ -147,8 +147,6 @@ class matrix
     std::vector<row_reference<T>> row_reference_;
     std::size_t rows_;
     std::size_t cols_;
-    
-    
     
 public:
     typedef std::vector<std::vector<T>> cols_t;
@@ -161,7 +159,7 @@ public:
     matrix(const matrix<T> &matrix) = default;
     matrix(matrix<T> && matrix) = default;
     
-    matrix<T>& operator=(matrix<T> & matrix);
+    matrix<T>& operator=(const matrix<T> & matrix);
     matrix<T>& operator=(matrix<T> && matrix);
     
     /**
@@ -201,29 +199,45 @@ matrix<T>::matrix(std::size_t rows, std::size_t cols) : rows_(rows), cols_(cols)
 {
     std::vector<T> row(cols);
     data_ = std::vector<std::vector<T>>(rows, row);
-    for (unsigned i = 0; i < rows; ++i) row_reference_.push_back(row_reference_(this, i));
+    for (unsigned i = 0; i < rows; ++i) row_reference_.push_back(row_reference<T>(this, i));
 }
 
 /**
  * assignment operator
- *
- * TODO : use matrix<T> & matrix<T>::operator=(const matrix<T> & matrix)
  */
 template <typename T>
-matrix<T> & matrix<T>::operator=(matrix<T> & matrix)
+matrix<T> & matrix<T>::operator=(const matrix<T> & matrix)
 {
     // Copy data_
     data_ = matrix.data_;
 
     // Resize to correct size
-    for (auto vec : data_) vec.resize(cols_);
+    for (std::vector<T>& vec : data_) vec.resize(cols_);
     data_.resize(rows_, std::vector<T>(cols_));
 
     // Refresh row_references
-    row_reference_.empty();
+    row_reference_.clear();
     for (unsigned i = 0; i < rows_; ++i) row_reference_.push_back(row_reference<T>(this, i));
 
-    std::cout << data_.size() << " x " << data_[0].size() << std::endl;
+    return *this;
+}
+
+/**
+ * move assignment operator
+ */
+template <typename T>
+matrix<T>& matrix<T>::operator=(matrix<T> && matrix)
+{
+    // Copy data_
+    data_ = std::move(matrix.data_);
+
+    // Resize to correct size
+    for (std::vector<T>& vec : data_) vec.resize(cols_);
+    data_.resize(rows_, std::vector<T>(cols_));
+
+    // Refresh row_references
+    row_reference_.clear();
+    for (unsigned i = 0; i < rows_; ++i) row_reference_.push_back(row_reference<T>(this, i));
 
     return *this;
 }
