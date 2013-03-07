@@ -1,0 +1,210 @@
+\hypertarget{classconst__horizontal__iterator}{\section{const\-\_\-horizontal\-\_\-iterator$<$ T $>$ Class Template Reference}
+\label{classconst__horizontal__iterator}\index{const\-\_\-horizontal\-\_\-iterator$<$ T $>$@{const\-\_\-horizontal\-\_\-iterator$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$du1matrix.\-hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef const T \hyperlink{classconst__horizontal__iterator_a426fd02977338edd9904f1bdfb7f9d6a}{value\-\_\-type}
+\item 
+typedef const T \& \hyperlink{classconst__horizontal__iterator_aa685786b86159c42546250d5026fa205}{reference}
+\item 
+typedef const T $\ast$ \hyperlink{classconst__horizontal__iterator_a44794e7f9d7ca88a648604b53ee343e4}{pointer}
+\item 
+typedef std\-::forward\-\_\-iterator\-\_\-tag \hyperlink{classconst__horizontal__iterator_a4ad9daf1ad6ddc77fa10f3a5ad155919}{iterator\-\_\-category}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classconst__horizontal__iterator_abbe0d839e7736f819796c32ecd68ddb8}{const\-\_\-horizontal\-\_\-iterator} ()
+\item 
+\hyperlink{classconst__horizontal__iterator_afc5d741260a91917634f790ba9e7d7bb}{const\-\_\-horizontal\-\_\-iterator} (\hyperlink{classrow__reference}{row\-\_\-reference}$<$ T $>$ $\ast$row, std\-::size\-\_\-t col=0)
+\item 
+\hyperlink{classconst__horizontal__iterator_a7e738578f8a331d227cf21e9f07e6fa3}{const\-\_\-horizontal\-\_\-iterator} (\hyperlink{classhorizontal__iterator}{horizontal\-\_\-iterator}$<$ T $>$ \&it)
+\item 
+\hyperlink{classconst__horizontal__iterator_aa685786b86159c42546250d5026fa205}{reference} \hyperlink{classconst__horizontal__iterator_a19c025c18a1dd8aba5ffa83fc3c799d3}{operator$\ast$} ()
+\item 
+\hyperlink{classconst__horizontal__iterator_a44794e7f9d7ca88a648604b53ee343e4}{pointer} \hyperlink{classconst__horizontal__iterator_a134653b64186d218eca1403a23dc93f1}{operator-\/$>$} ()
+\item 
+bool \hyperlink{classconst__horizontal__iterator_a5169df23e17310ec4de9795eb7d4fd67}{operator!=} (\hyperlink{classhorizontal__iterator}{horizontal\-\_\-iterator}$<$ T $>$ it) const 
+\item 
+bool \hyperlink{classconst__horizontal__iterator_a86a70f377a32a85a7ffbced43159848a}{operator!=} (\hyperlink{classconst__horizontal__iterator}{const\-\_\-horizontal\-\_\-iterator}$<$ T $>$ it) const 
+\item 
+std\-::size\-\_\-t \hyperlink{classconst__horizontal__iterator_aacdc16735e9f7b65a251c367ffbf8c0c}{operator++} ()
+\item 
+std\-::size\-\_\-t \hyperlink{classconst__horizontal__iterator_a4bc3f0bc48bf660cca931973b6578dc7}{operator++} (int)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrow__reference}{row\-\_\-reference}$<$ T $>$ $\ast$ \hyperlink{classconst__horizontal__iterator_a10b63a186970a5302dddcd56790ab9c8}{row\-\_\-}
+\item 
+std\-::size\-\_\-t \hyperlink{classconst__horizontal__iterator_a6974fbff9039d679083a0ad3a596d3c4}{col\-\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$class const\-\_\-horizontal\-\_\-iterator$<$ T $>$}
+
+const\-\_\-iterator throught matrix rows 
+
+Definition at line 14 of file du1matrix.\-hpp.
+
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classconst__horizontal__iterator_a4ad9daf1ad6ddc77fa10f3a5ad155919}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!iterator\-\_\-category@{iterator\-\_\-category}}
+\index{iterator\-\_\-category@{iterator\-\_\-category}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{iterator\-\_\-category}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ typedef std\-::forward\-\_\-iterator\-\_\-tag {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::{\bf iterator\-\_\-category}}}\label{classconst__horizontal__iterator_a4ad9daf1ad6ddc77fa10f3a5ad155919}
+
+
+Definition at line 68 of file du1matrix.\-hpp.
+
+\hypertarget{classconst__horizontal__iterator_a44794e7f9d7ca88a648604b53ee343e4}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!pointer@{pointer}}
+\index{pointer@{pointer}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{pointer}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ typedef const T$\ast$ {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::{\bf pointer}}}\label{classconst__horizontal__iterator_a44794e7f9d7ca88a648604b53ee343e4}
+
+
+Definition at line 66 of file du1matrix.\-hpp.
+
+\hypertarget{classconst__horizontal__iterator_aa685786b86159c42546250d5026fa205}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!reference@{reference}}
+\index{reference@{reference}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{reference}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ typedef const T\& {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::{\bf reference}}}\label{classconst__horizontal__iterator_aa685786b86159c42546250d5026fa205}
+
+
+Definition at line 65 of file du1matrix.\-hpp.
+
+\hypertarget{classconst__horizontal__iterator_a426fd02977338edd9904f1bdfb7f9d6a}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!value\-\_\-type@{value\-\_\-type}}
+\index{value\-\_\-type@{value\-\_\-type}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{value\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ typedef const T {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::{\bf value\-\_\-type}}}\label{classconst__horizontal__iterator_a426fd02977338edd9904f1bdfb7f9d6a}
+
+
+Definition at line 64 of file du1matrix.\-hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classconst__horizontal__iterator_abbe0d839e7736f819796c32ecd68ddb8}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{const\-\_\-horizontal\-\_\-iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::{\bf const\-\_\-horizontal\-\_\-iterator} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classconst__horizontal__iterator_abbe0d839e7736f819796c32ecd68ddb8}
+\hypertarget{classconst__horizontal__iterator_afc5d741260a91917634f790ba9e7d7bb}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{const\-\_\-horizontal\-\_\-iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::{\bf const\-\_\-horizontal\-\_\-iterator} (
+\begin{DoxyParamCaption}
+\item[{{\bf row\-\_\-reference}$<$ T $>$ $\ast$}]{row, }
+\item[{std\-::size\-\_\-t}]{col = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classconst__horizontal__iterator_afc5d741260a91917634f790ba9e7d7bb}
+
+
+Definition at line 71 of file du1matrix.\-hpp.
+
+\hypertarget{classconst__horizontal__iterator_a7e738578f8a331d227cf21e9f07e6fa3}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{const\-\_\-horizontal\-\_\-iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::{\bf const\-\_\-horizontal\-\_\-iterator} (
+\begin{DoxyParamCaption}
+\item[{{\bf horizontal\-\_\-iterator}$<$ T $>$ \&}]{it}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classconst__horizontal__iterator_a7e738578f8a331d227cf21e9f07e6fa3}
+
+
+Definition at line 72 of file du1matrix.\-hpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classconst__horizontal__iterator_a5169df23e17310ec4de9795eb7d4fd67}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{{\bf horizontal\-\_\-iterator}$<$ T $>$}]{it}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classconst__horizontal__iterator_a5169df23e17310ec4de9795eb7d4fd67}
+
+
+Definition at line 77 of file du1matrix.\-hpp.
+
+\hypertarget{classconst__horizontal__iterator_a86a70f377a32a85a7ffbced43159848a}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{{\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$}]{it}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classconst__horizontal__iterator_a86a70f377a32a85a7ffbced43159848a}
+
+
+Definition at line 78 of file du1matrix.\-hpp.
+
+\hypertarget{classconst__horizontal__iterator_a19c025c18a1dd8aba5ffa83fc3c799d3}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf reference} {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classconst__horizontal__iterator_a19c025c18a1dd8aba5ffa83fc3c799d3}
+
+
+Definition at line 74 of file du1matrix.\-hpp.
+
+\hypertarget{classconst__horizontal__iterator_aacdc16735e9f7b65a251c367ffbf8c0c}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{operator++}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ std\-::size\-\_\-t {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::operator++ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classconst__horizontal__iterator_aacdc16735e9f7b65a251c367ffbf8c0c}
+
+
+Definition at line 79 of file du1matrix.\-hpp.
+
+\hypertarget{classconst__horizontal__iterator_a4bc3f0bc48bf660cca931973b6578dc7}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{operator++}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ std\-::size\-\_\-t {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::operator++ (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classconst__horizontal__iterator_a4bc3f0bc48bf660cca931973b6578dc7}
+
+
+Definition at line 80 of file du1matrix.\-hpp.
+
+\hypertarget{classconst__horizontal__iterator_a134653b64186d218eca1403a23dc93f1}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{operator-\/$>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf pointer} {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::operator-\/$>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classconst__horizontal__iterator_a134653b64186d218eca1403a23dc93f1}
+
+
+Definition at line 75 of file du1matrix.\-hpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classconst__horizontal__iterator_a6974fbff9039d679083a0ad3a596d3c4}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!col\-\_\-@{col\-\_\-}}
+\index{col\-\_\-@{col\-\_\-}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{col\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ std\-::size\-\_\-t {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::col\-\_\-\hspace{0.3cm}{\ttfamily [protected]}}}\label{classconst__horizontal__iterator_a6974fbff9039d679083a0ad3a596d3c4}
+
+
+Definition at line 61 of file du1matrix.\-hpp.
+
+\hypertarget{classconst__horizontal__iterator_a10b63a186970a5302dddcd56790ab9c8}{\index{const\-\_\-horizontal\-\_\-iterator@{const\-\_\-horizontal\-\_\-iterator}!row\-\_\-@{row\-\_\-}}
+\index{row\-\_\-@{row\-\_\-}!const_horizontal_iterator@{const\-\_\-horizontal\-\_\-iterator}}
+\subsubsection[{row\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf row\-\_\-reference}$<$T$>$$\ast$ {\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$\-::row\-\_\-\hspace{0.3cm}{\ttfamily [protected]}}}\label{classconst__horizontal__iterator_a10b63a186970a5302dddcd56790ab9c8}
+
+
+Definition at line 60 of file du1matrix.\-hpp.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+du1/\hyperlink{du1matrix_8hpp}{du1matrix.\-hpp}\end{DoxyCompactItemize}

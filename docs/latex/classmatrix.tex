@@ -1,0 +1,199 @@
+\hypertarget{classmatrix}{\section{matrix$<$ T $>$ Class Template Reference}
+\label{classmatrix}\index{matrix$<$ T $>$@{matrix$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$du1matrix.\-hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\-::vector\\*
+$<$ std\-::vector$<$ T $>$ $>$ \hyperlink{classmatrix_a33705bb22bd2ff26ab7e8af05f15569e}{cols\-\_\-t}
+\item 
+typedef std\-::vector\\*
+$<$ \hyperlink{classrow__reference}{row\-\_\-reference}$<$ T $>$ $>$ \hyperlink{classmatrix_af8b068298be5fe588a7911bf82fc82bb}{rows\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmatrix_a5bbbb47321f32b546b272239ab6c007b}{matrix} ()
+\item 
+\hyperlink{classmatrix_a4088152f855ecba4ca11b74798d1d60c}{matrix} (std\-::size\-\_\-t \hyperlink{classmatrix_ab0de11dcf04826c3923231b3a1510798}{rows}, std\-::size\-\_\-t \hyperlink{classmatrix_a6734db1df79566355669fc34c0bedb15}{cols})
+\item 
+\hyperlink{classmatrix_a864ad1444a5f1f40dcf67288f19887e9}{matrix} (std\-::size\-\_\-t \hyperlink{classmatrix_ab0de11dcf04826c3923231b3a1510798}{rows}, std\-::size\-\_\-t \hyperlink{classmatrix_a6734db1df79566355669fc34c0bedb15}{cols}, T default\-\_\-value)
+\item 
+\hyperlink{classmatrix_a83dcebf4c4f051a73adc86704e302767}{matrix} (const \hyperlink{classmatrix}{matrix}$<$ T $>$ \&\hyperlink{classmatrix}{matrix})
+\item 
+\hyperlink{classmatrix_a4df13087198b66e082767f7046b46970}{matrix} (\hyperlink{classmatrix}{matrix}$<$ T $>$ \&\&\hyperlink{classmatrix}{matrix})
+\item 
+\hyperlink{classmatrix}{matrix}$<$ T $>$ \& \hyperlink{classmatrix_aad5cc1e2ebb53530b38932a04db885d6}{operator=} (const \hyperlink{classmatrix}{matrix}$<$ T $>$ \&\hyperlink{classmatrix}{matrix})=default
+\item 
+\hyperlink{classmatrix}{matrix}$<$ T $>$ \& \hyperlink{classmatrix_a1187045259c4beaecf56b22c9ec4b840}{operator=} (\hyperlink{classmatrix}{matrix}$<$ T $>$ \&\&\hyperlink{classmatrix}{matrix})=default
+\item 
+std\-::vector$<$ T $>$ \& \hyperlink{classmatrix_a9e8d88c7653605e38fa4804c86769814}{operator\mbox{[}$\,$\mbox{]}} (std\-::size\-\_\-t i)
+\item 
+\hyperlink{classmatrix_a33705bb22bd2ff26ab7e8af05f15569e}{cols\-\_\-t} \& \hyperlink{classmatrix_a6734db1df79566355669fc34c0bedb15}{cols} ()
+\item 
+\hyperlink{classmatrix_af8b068298be5fe588a7911bf82fc82bb}{rows\-\_\-t} \& \hyperlink{classmatrix_ab0de11dcf04826c3923231b3a1510798}{rows} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename K $>$ }\\std\-::ostream \& \hyperlink{classmatrix_ade94c5f75351c6706344ab0cfc7a0e39}{operator$<$$<$} (std\-::ostream \&out, const \hyperlink{classmatrix}{matrix}$<$ K $>$ \&\hyperlink{classmatrix}{matrix})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$class matrix$<$ T $>$}
+
+Matrix container
+
+Class behaving like S\-T\-L containers. 
+
+Definition at line 11 of file du1matrix.\-hpp.
+
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classmatrix_a33705bb22bd2ff26ab7e8af05f15569e}{\index{matrix@{matrix}!cols\-\_\-t@{cols\-\_\-t}}
+\index{cols\-\_\-t@{cols\-\_\-t}!matrix@{matrix}}
+\subsubsection[{cols\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ typedef std\-::vector$<$std\-::vector$<$T$>$ $>$ {\bf matrix}$<$ T $>$\-::{\bf cols\-\_\-t}}}\label{classmatrix_a33705bb22bd2ff26ab7e8af05f15569e}
+
+
+Definition at line 125 of file du1matrix.\-hpp.
+
+\hypertarget{classmatrix_af8b068298be5fe588a7911bf82fc82bb}{\index{matrix@{matrix}!rows\-\_\-t@{rows\-\_\-t}}
+\index{rows\-\_\-t@{rows\-\_\-t}!matrix@{matrix}}
+\subsubsection[{rows\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ typedef std\-::vector$<${\bf row\-\_\-reference}$<$T$>$ $>$ {\bf matrix}$<$ T $>$\-::{\bf rows\-\_\-t}}}\label{classmatrix_af8b068298be5fe588a7911bf82fc82bb}
+
+
+Definition at line 126 of file du1matrix.\-hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmatrix_a5bbbb47321f32b546b272239ab6c007b}{\index{matrix@{matrix}!matrix@{matrix}}
+\index{matrix@{matrix}!matrix@{matrix}}
+\subsubsection[{matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf matrix}$<$ T $>$\-::{\bf matrix} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmatrix_a5bbbb47321f32b546b272239ab6c007b}
+
+
+Definition at line 128 of file du1matrix.\-hpp.
+
+\hypertarget{classmatrix_a4088152f855ecba4ca11b74798d1d60c}{\index{matrix@{matrix}!matrix@{matrix}}
+\index{matrix@{matrix}!matrix@{matrix}}
+\subsubsection[{matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf matrix}$<$ T $>$\-::{\bf matrix} (
+\begin{DoxyParamCaption}
+\item[{std\-::size\-\_\-t}]{rows, }
+\item[{std\-::size\-\_\-t}]{cols}
+\end{DoxyParamCaption}
+)}}\label{classmatrix_a4088152f855ecba4ca11b74798d1d60c}
+
+
+Definition at line 158 of file du1matrix.\-hpp.
+
+\hypertarget{classmatrix_a864ad1444a5f1f40dcf67288f19887e9}{\index{matrix@{matrix}!matrix@{matrix}}
+\index{matrix@{matrix}!matrix@{matrix}}
+\subsubsection[{matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf matrix}$<$ T $>$\-::{\bf matrix} (
+\begin{DoxyParamCaption}
+\item[{std\-::size\-\_\-t}]{rows, }
+\item[{std\-::size\-\_\-t}]{cols, }
+\item[{T}]{default\-\_\-value}
+\end{DoxyParamCaption}
+)}}\label{classmatrix_a864ad1444a5f1f40dcf67288f19887e9}
+
+
+Definition at line 150 of file du1matrix.\-hpp.
+
+\hypertarget{classmatrix_a83dcebf4c4f051a73adc86704e302767}{\index{matrix@{matrix}!matrix@{matrix}}
+\index{matrix@{matrix}!matrix@{matrix}}
+\subsubsection[{matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf matrix}$<$ T $>$\-::{\bf matrix} (
+\begin{DoxyParamCaption}
+\item[{const {\bf matrix}$<$ T $>$ \&}]{matrix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmatrix_a83dcebf4c4f051a73adc86704e302767}
+
+
+Definition at line 132 of file du1matrix.\-hpp.
+
+\hypertarget{classmatrix_a4df13087198b66e082767f7046b46970}{\index{matrix@{matrix}!matrix@{matrix}}
+\index{matrix@{matrix}!matrix@{matrix}}
+\subsubsection[{matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf matrix}$<$ T $>$\-::{\bf matrix} (
+\begin{DoxyParamCaption}
+\item[{{\bf matrix}$<$ T $>$ \&\&}]{matrix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmatrix_a4df13087198b66e082767f7046b46970}
+
+
+Definition at line 133 of file du1matrix.\-hpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmatrix_a6734db1df79566355669fc34c0bedb15}{\index{matrix@{matrix}!cols@{cols}}
+\index{cols@{cols}!matrix@{matrix}}
+\subsubsection[{cols}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf cols\-\_\-t}\& {\bf matrix}$<$ T $>$\-::cols (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmatrix_a6734db1df79566355669fc34c0bedb15}
+
+
+Definition at line 143 of file du1matrix.\-hpp.
+
+\hypertarget{classmatrix_aad5cc1e2ebb53530b38932a04db885d6}{\index{matrix@{matrix}!operator=@{operator=}}
+\index{operator=@{operator=}!matrix@{matrix}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf matrix}$<$T$>$\& {\bf matrix}$<$ T $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf matrix}$<$ T $>$ \&}]{matrix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}}\label{classmatrix_aad5cc1e2ebb53530b38932a04db885d6}
+\hypertarget{classmatrix_a1187045259c4beaecf56b22c9ec4b840}{\index{matrix@{matrix}!operator=@{operator=}}
+\index{operator=@{operator=}!matrix@{matrix}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf matrix}$<$T$>$\& {\bf matrix}$<$ T $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf matrix}$<$ T $>$ \&\&}]{matrix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}}\label{classmatrix_a1187045259c4beaecf56b22c9ec4b840}
+\hypertarget{classmatrix_a9e8d88c7653605e38fa4804c86769814}{\index{matrix@{matrix}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!matrix@{matrix}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ std\-::vector$<$T$>$\& {\bf matrix}$<$ T $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{std\-::size\-\_\-t}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmatrix_a9e8d88c7653605e38fa4804c86769814}
+Random access to matrix items 
+
+Definition at line 141 of file du1matrix.\-hpp.
+
+\hypertarget{classmatrix_ab0de11dcf04826c3923231b3a1510798}{\index{matrix@{matrix}!rows@{rows}}
+\index{rows@{rows}!matrix@{matrix}}
+\subsubsection[{rows}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf rows\-\_\-t}\& {\bf matrix}$<$ T $>$\-::rows (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmatrix_ab0de11dcf04826c3923231b3a1510798}
+
+
+Definition at line 144 of file du1matrix.\-hpp.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classmatrix_ade94c5f75351c6706344ab0cfc7a0e39}{\index{matrix@{matrix}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!matrix@{matrix}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename K $>$ std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out, }
+\item[{const {\bf matrix}$<$ K $>$ \&}]{matrix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmatrix_ade94c5f75351c6706344ab0cfc7a0e39}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+du1/\hyperlink{du1matrix_8hpp}{du1matrix.\-hpp}\end{DoxyCompactItemize}
