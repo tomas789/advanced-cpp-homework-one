@@ -3,10 +3,9 @@
 
 #include <iostream>
 #include <algorithm>
-#include <complex>
 
 
-typedef matrix< std::complex<int>> my_matrix;
+typedef matrix< int> my_matrix;
 
 int cnt = 100;
 
@@ -85,7 +84,7 @@ int main( int, char * *)
         // Iterator prefix increment
         std::cout << "TEST L" << std::endl;
         matrix<int> test_l(3, 4, 5);
-        horizontal_iterator<int> it_l = test_l.rows()[0].begin();
+        vertical_iterator<int> it_l = test_l.cols()[0].begin();
         it_l++;
         
         // Iterator postfix increment
@@ -95,16 +94,24 @@ int main( int, char * *)
         // Const_iterator prefix increment
         std::cout << "TEST N" << std::endl;
         matrix<int> test_n(3, 4, 5);
-        const_horizontal_iterator<int> 
+        const_vertical_iterator<int> it_n = test_l.cols()[0].cbegin();
+        ++it_n;
         
         // Const_iterator postfix increment
         std::cout << "TEST O" << std::endl;
-        
+        matrix<int> test_o(3, 4, 5);
+        const_vertical_iterator<int> it_o = test_l.cols()[0].cbegin();
+        it_o++;
+
         // Iterator increment on end()
         std::cout << "TEST P" << std::endl;
+        vertical_iterator<int> it_p = test_l.cols()[0].end();
+        //++it_p;
         
         // Const_iterator increment on end()
         std::cout << "TEST Q" << std::endl;
+        const_vertical_iterator<int> it_q = test_l.cols()[0].cend();
+        //++it_q;
         
         // Matrix at
         std::cout << "TEST R" << std::endl;
@@ -118,8 +125,8 @@ int main( int, char * *)
         // du_assert
         std::cout << "TEST U" << std::endl;
         
-        my_matrix a( 10, 4, 0);  // matice 3 radky * 4 sloupce inicializovana nulami
-        
+
+        my_matrix a( 3, 4, 5);  // matice 3 radky * 4 sloupce inicializovana nulami
         
         my_matrix c = a;
         //    c.dump(std::cout);
@@ -128,7 +135,9 @@ int main( int, char * *)
         //b.dump(std::cout);
         
         std::for_each( b.cols().begin(), b.cols().end(), f2);
-        
+
+        b[0][0] = 3;
+        std::cout << b;
         //b.dump(std::cout);
         
         c = b;
@@ -136,7 +145,7 @@ int main( int, char * *)
 
         //std::cout << c;
         
-        std::for_each( c.rows().begin(), c.rows().end(), f4);
+        //std::for_each( c.rows().begin(), c.rows().end(), f4);
         
         my_matrix::cols_t::iterator rowit;
 
