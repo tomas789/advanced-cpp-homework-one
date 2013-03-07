@@ -1,0 +1,197 @@
+\hypertarget{classhorizontal__iterator}{\section{horizontal\-\_\-iterator$<$ T $>$ Class Template Reference}
+\label{classhorizontal__iterator}\index{horizontal\-\_\-iterator$<$ T $>$@{horizontal\-\_\-iterator$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$du1matrix.\-hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef T \hyperlink{classhorizontal__iterator_aecda8c123296e42db62e8cc706428f71}{value\-\_\-type}
+\item 
+typedef T \& \hyperlink{classhorizontal__iterator_a286f6a9e1498bd52e0ddcf8b1bff78f8}{reference}
+\item 
+typedef T $\ast$ \hyperlink{classhorizontal__iterator_a2fde5b2bd7677798fe3ca0d8e614c039}{pointer}
+\item 
+typedef std\-::forward\-\_\-iterator\-\_\-tag \hyperlink{classhorizontal__iterator_ab7d0fbb5c4be316048d3199a56b2090b}{iterator\-\_\-category}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhorizontal__iterator_ac272fd0aa7791a8a397f82aee9d00ef1}{horizontal\-\_\-iterator} ()
+\item 
+\hyperlink{classhorizontal__iterator_a98576d3ed4624ce9d713c3b7ed3905ff}{horizontal\-\_\-iterator} (\hyperlink{classrow__reference}{row\-\_\-reference}$<$ T $>$ $\ast$row, std\-::size\-\_\-t col=0)
+\item 
+\hyperlink{classhorizontal__iterator_a286f6a9e1498bd52e0ddcf8b1bff78f8}{reference} \hyperlink{classhorizontal__iterator_acd4d244d00d8028b4263f267c7809b8d}{operator$\ast$} ()
+\item 
+\hyperlink{classhorizontal__iterator_a2fde5b2bd7677798fe3ca0d8e614c039}{pointer} \hyperlink{classhorizontal__iterator_a350d2cdc42622f39b921b19eac5c0aa6}{operator-\/$>$} ()
+\item 
+bool \hyperlink{classhorizontal__iterator_a6f85e779438e41bcc76383645d56ad20}{operator!=} (\hyperlink{classhorizontal__iterator}{horizontal\-\_\-iterator}$<$ T $>$ it) const 
+\item 
+bool \hyperlink{classhorizontal__iterator_a048454bfd02da9d45396fba236de86db}{operator!=} (\hyperlink{classconst__horizontal__iterator}{const\-\_\-horizontal\-\_\-iterator}$<$ T $>$ it) const 
+\item 
+std\-::size\-\_\-t \hyperlink{classhorizontal__iterator_a6986f3de1fdc42860328bf893320abf3}{operator++} ()
+\item 
+std\-::size\-\_\-t \hyperlink{classhorizontal__iterator_a071590045a120b5294aa78195f41781e}{operator++} (int)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrow__reference}{row\-\_\-reference}$<$ T $>$ $\ast$ \hyperlink{classhorizontal__iterator_a29e59ea8f9dcb2a05ca56673636faf77}{row\-\_\-}
+\item 
+std\-::size\-\_\-t \hyperlink{classhorizontal__iterator_aaabc9b0ce0387ee55a7663dfb87bfb93}{col\-\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$class horizontal\-\_\-iterator$<$ T $>$}
+
+const\-\_\-iterator throught matrix rows 
+
+Definition at line 13 of file du1matrix.\-hpp.
+
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classhorizontal__iterator_ab7d0fbb5c4be316048d3199a56b2090b}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!iterator\-\_\-category@{iterator\-\_\-category}}
+\index{iterator\-\_\-category@{iterator\-\_\-category}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{iterator\-\_\-category}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ typedef std\-::forward\-\_\-iterator\-\_\-tag {\bf horizontal\-\_\-iterator}$<$ T $>$\-::{\bf iterator\-\_\-category}}}\label{classhorizontal__iterator_ab7d0fbb5c4be316048d3199a56b2090b}
+
+
+Definition at line 97 of file du1matrix.\-hpp.
+
+\hypertarget{classhorizontal__iterator_a2fde5b2bd7677798fe3ca0d8e614c039}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!pointer@{pointer}}
+\index{pointer@{pointer}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{pointer}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ typedef T$\ast$ {\bf horizontal\-\_\-iterator}$<$ T $>$\-::{\bf pointer}}}\label{classhorizontal__iterator_a2fde5b2bd7677798fe3ca0d8e614c039}
+
+
+Definition at line 95 of file du1matrix.\-hpp.
+
+\hypertarget{classhorizontal__iterator_a286f6a9e1498bd52e0ddcf8b1bff78f8}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!reference@{reference}}
+\index{reference@{reference}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{reference}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ typedef T\& {\bf horizontal\-\_\-iterator}$<$ T $>$\-::{\bf reference}}}\label{classhorizontal__iterator_a286f6a9e1498bd52e0ddcf8b1bff78f8}
+
+
+Definition at line 94 of file du1matrix.\-hpp.
+
+\hypertarget{classhorizontal__iterator_aecda8c123296e42db62e8cc706428f71}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!value\-\_\-type@{value\-\_\-type}}
+\index{value\-\_\-type@{value\-\_\-type}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{value\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ typedef T {\bf horizontal\-\_\-iterator}$<$ T $>$\-::{\bf value\-\_\-type}}}\label{classhorizontal__iterator_aecda8c123296e42db62e8cc706428f71}
+
+
+Definition at line 93 of file du1matrix.\-hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhorizontal__iterator_ac272fd0aa7791a8a397f82aee9d00ef1}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!horizontal\-\_\-iterator@{horizontal\-\_\-iterator}}
+\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{horizontal\-\_\-iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf horizontal\-\_\-iterator}$<$ T $>$\-::{\bf horizontal\-\_\-iterator} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhorizontal__iterator_ac272fd0aa7791a8a397f82aee9d00ef1}
+\hypertarget{classhorizontal__iterator_a98576d3ed4624ce9d713c3b7ed3905ff}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!horizontal\-\_\-iterator@{horizontal\-\_\-iterator}}
+\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{horizontal\-\_\-iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf horizontal\-\_\-iterator}$<$ T $>$\-::{\bf horizontal\-\_\-iterator} (
+\begin{DoxyParamCaption}
+\item[{{\bf row\-\_\-reference}$<$ T $>$ $\ast$}]{row, }
+\item[{std\-::size\-\_\-t}]{col = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classhorizontal__iterator_a98576d3ed4624ce9d713c3b7ed3905ff}
+
+
+Definition at line 100 of file du1matrix.\-hpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classhorizontal__iterator_a6f85e779438e41bcc76383645d56ad20}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf horizontal\-\_\-iterator}$<$ T $>$\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{{\bf horizontal\-\_\-iterator}$<$ T $>$}]{it}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classhorizontal__iterator_a6f85e779438e41bcc76383645d56ad20}
+
+
+Definition at line 105 of file du1matrix.\-hpp.
+
+\hypertarget{classhorizontal__iterator_a048454bfd02da9d45396fba236de86db}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf horizontal\-\_\-iterator}$<$ T $>$\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{{\bf const\-\_\-horizontal\-\_\-iterator}$<$ T $>$}]{it}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classhorizontal__iterator_a048454bfd02da9d45396fba236de86db}
+
+
+Definition at line 106 of file du1matrix.\-hpp.
+
+\hypertarget{classhorizontal__iterator_acd4d244d00d8028b4263f267c7809b8d}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf reference} {\bf horizontal\-\_\-iterator}$<$ T $>$\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classhorizontal__iterator_acd4d244d00d8028b4263f267c7809b8d}
+
+
+Definition at line 102 of file du1matrix.\-hpp.
+
+\hypertarget{classhorizontal__iterator_a6986f3de1fdc42860328bf893320abf3}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{operator++}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ std\-::size\-\_\-t {\bf horizontal\-\_\-iterator}$<$ T $>$\-::operator++ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classhorizontal__iterator_a6986f3de1fdc42860328bf893320abf3}
+
+
+Definition at line 107 of file du1matrix.\-hpp.
+
+\hypertarget{classhorizontal__iterator_a071590045a120b5294aa78195f41781e}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{operator++}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ std\-::size\-\_\-t {\bf horizontal\-\_\-iterator}$<$ T $>$\-::operator++ (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classhorizontal__iterator_a071590045a120b5294aa78195f41781e}
+
+
+Definition at line 108 of file du1matrix.\-hpp.
+
+\hypertarget{classhorizontal__iterator_a350d2cdc42622f39b921b19eac5c0aa6}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{operator-\/$>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf pointer} {\bf horizontal\-\_\-iterator}$<$ T $>$\-::operator-\/$>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classhorizontal__iterator_a350d2cdc42622f39b921b19eac5c0aa6}
+
+
+Definition at line 103 of file du1matrix.\-hpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classhorizontal__iterator_aaabc9b0ce0387ee55a7663dfb87bfb93}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!col\-\_\-@{col\-\_\-}}
+\index{col\-\_\-@{col\-\_\-}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{col\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ std\-::size\-\_\-t {\bf horizontal\-\_\-iterator}$<$ T $>$\-::col\-\_\-\hspace{0.3cm}{\ttfamily [protected]}}}\label{classhorizontal__iterator_aaabc9b0ce0387ee55a7663dfb87bfb93}
+
+
+Definition at line 90 of file du1matrix.\-hpp.
+
+\hypertarget{classhorizontal__iterator_a29e59ea8f9dcb2a05ca56673636faf77}{\index{horizontal\-\_\-iterator@{horizontal\-\_\-iterator}!row\-\_\-@{row\-\_\-}}
+\index{row\-\_\-@{row\-\_\-}!horizontal_iterator@{horizontal\-\_\-iterator}}
+\subsubsection[{row\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf row\-\_\-reference}$<$T$>$$\ast$ {\bf horizontal\-\_\-iterator}$<$ T $>$\-::row\-\_\-\hspace{0.3cm}{\ttfamily [protected]}}}\label{classhorizontal__iterator_a29e59ea8f9dcb2a05ca56673636faf77}
+
+
+Definition at line 89 of file du1matrix.\-hpp.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+du1/\hyperlink{du1matrix_8hpp}{du1matrix.\-hpp}\end{DoxyCompactItemize}
