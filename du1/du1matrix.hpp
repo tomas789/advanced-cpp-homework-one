@@ -160,8 +160,15 @@ public:
     matrix() : rows_(0), cols_(0) { };
     matrix(std::size_t rows, std::size_t cols, T default_value = T());
     
-    matrix(const matrix<T> &matrix) = default;
-    matrix(matrix<T> && matrix) = default;
+    /**
+     * I really love Microsoft compiler -> no default support (yet)
+     * matrix(const matrix<T> &matrix) = default;
+     * matrix(matrix<T> && matrix) = default;
+     */
+    matrix(const matrix<T> &matrix) : rows_(matrix.rows_), cols_(matrix.cols_),
+        column_reference_(matrix.column_reference_), data_(matrix.data_) { };
+    matrix(matrix<T> && matrix) : rows_(matrix.rows_), cols_(matrix.cols_),
+        column_reference_(std::move(matrix.column_reference_)), data_(std::move(matrix.data_)) { };
 
     /**
      * Tricky - this save me few lines
