@@ -40,7 +40,7 @@ std::ostream& operator<<(std::ostream& out, const matrix<T> & matrix)
 }
 
 /**
- * Row printing function - for debug purpose
+ * Column printing function - for debug purpose
  */
 template <typename T>
 std::ostream& operator<<(std::ostream& out, column_reference<T> & row)
@@ -90,7 +90,8 @@ public:
     typedef const T value_type;
     typedef const T& reference;
     typedef const T* pointer;
-    
+    typedef std::size_t difference_type;
+	typedef difference_type distance_type;
     typedef std::forward_iterator_tag iterator_category;
     
     const_vertical_iterator() { };
@@ -122,7 +123,8 @@ public:
     typedef T value_type;
     typedef T& reference;
     typedef T* pointer;
-    
+	typedef std::size_t difference_type;
+	typedef difference_type distance_type;
     typedef std::forward_iterator_tag iterator_category;
     
     vertical_iterator() { };
