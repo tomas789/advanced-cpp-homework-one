@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "du1/du1test.cpp"
-         timestampString = "384374712.166928"
+         timestampString = "384388039.056073"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "137"
-         endingLineNumber = "137"
+         startingLineNumber = "148"
+         endingLineNumber = "148"
          landmarkName = "main( int, char * *)"
          landmarkType = "7">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "du1/du1test.cpp"
-         timestampString = "384373004.641147"
+         timestampString = "384388039.056073"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
+         startingLineNumber = "30"
+         endingLineNumber = "30"
          landmarkName = "f4( my_matrix::rows_t::reference r)"
          landmarkType = "7">
       </FileBreakpoint>
@@ -34,13 +34,37 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "du1/du1test.cpp"
-         timestampString = "384374712.166928"
+         timestampString = "384388039.056073"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "122"
-         endingLineNumber = "122"
+         startingLineNumber = "131"
+         endingLineNumber = "131"
          landmarkName = "main( int, char * *)"
          landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "du1/du1matrix.hpp"
+         timestampString = "384385610.73941"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "75"
+         endingLineNumber = "75"
+         landmarkName = "class column_reference"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "du1/du1matrix.hpp"
+         timestampString = "384387580.889452"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "192"
+         endingLineNumber = "192">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
