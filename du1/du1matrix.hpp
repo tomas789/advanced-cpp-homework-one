@@ -167,10 +167,8 @@ public:
      * matrix(const matrix<T> &matrix) = default;
      * matrix(matrix<T> && matrix) = default;
      */
-    matrix(const matrix<T> &matrix) : rows_(matrix.rows_), cols_(matrix.cols_),
-        column_reference_(matrix.column_reference_), data_(matrix.data_) { };
-    matrix(matrix<T> && matrix) : rows_(matrix.rows_), cols_(matrix.cols_),
-        column_reference_(std::move(matrix.column_reference_)), data_(std::move(matrix.data_)) { };
+    matrix(const matrix<T> &matrix) : data_(matrix.data_), column_reference_(matrix.column_reference_), rows_(matrix.rows_), cols_(matrix.cols_) { };
+    matrix(matrix<T> && matrix) : data_(std::move(matrix.data_)), column_reference_(std::move(matrix.column_reference_)), rows_(matrix.rows_), cols_(matrix.cols_) { };
 
     /**
      * Tricky - this save me few lines
