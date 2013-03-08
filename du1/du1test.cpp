@@ -116,7 +116,7 @@ int main( int, char * *)
         std::for_each( b.cols().begin(), b.cols().end(), f2);
 
         c = b;
-        //c[0][2] = b[1][1];
+        c[0][2] = b[1][1];
 
         std::for_each( c.rows().begin(), c.rows().end(), f4);
         

@@ -143,8 +143,6 @@ public:
  * Matrix container
  *
  * Class behaving like STL containers. 
- *
- * TODO : matrix.rows()[x][y] , matrix.cols()[x][y]
  */
 template< typename T>
 class matrix
