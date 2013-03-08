@@ -12,9 +12,7 @@
  *  - move semantics
  */
 
-/**
- * WARNING : row things are column things - bad name
- */
+/* g++-mp-4.8 -std=c++11 -Wall -pedantic *.cpp - no warning or error YES!!! */
 
 /**************************************************************************************************/
 
@@ -33,8 +31,8 @@ template <typename T> class const_vertical_iterator;
 template <typename T>
 std::ostream& operator<<(std::ostream& out, const matrix<T> & matrix)
 {
-    for (auto row : matrix.data_) {
-        for (T item : row) out << item << " ";
+    for (auto& column : matrix.data_) {
+        for (T item : column) out << item << " ";
         out << std::endl;
     } return out << std::endl;
 }
@@ -50,13 +48,13 @@ std::ostream& operator<<(std::ostream& out, column_reference<T> & row)
 }
 
 /**
- * Pseudo-vector holding matrix rows
+ * Pseudo-vector holding matrix cols
  *
  * TODO : what should end(), cend() return on matrix 0x0
  */
 template <typename T>
 class column_reference {
-    matrix<T> * matrix_;
+    std::vector<std::vector<T>> & matrix_;
     std::size_t col_;
 public:
     typedef T value_type;
@@ -64,16 +62,18 @@ public:
     typedef T* pointer;
     typedef vertical_iterator<T> iterator;
     typedef const_vertical_iterator<T> const_iterator;
+
+    column_reference(std::vector<std::vector<T>> & matrix, std::size_t column_number) : matrix_(matrix), col_(column_number) {};
     
-    column_reference(matrix<T> * matrix, std::size_t column_number) : matrix_(matrix), col_(column_number) {};
-    
-    reference operator[](std::size_t at) { return (*matrix_)[at][col_]; };
-    
-    iterator begin() { return iterator(this, 0); };
-    iterator end() { return iterator(this, (*matrix_).rows().size()); };
-    const_iterator cbegin() { return const_iterator(this, 0); };
-    const_iterator cend() { return const_iterator(this, (*matrix_).rows().size()); };
-    std::size_t size() { return (*matrix_)[col_].size(); }
+    reference operator[](std::size_t at) { return matrix_[at][col_]; };
+    bool operator==(const column_reference& column) { return matrix_ == column.matrix_ && col_ == column.col_; };
+
+    // Exceptions are not pretty, but there is no other solution (this == nullptr -> no constructor or something like this)
+    iterator begin() { if(!this) throw std::runtime_error("iterator"); return iterator(this, 0); };
+    iterator end() { if(!this) throw std::runtime_error("iterator"); return iterator(this, matrix_.size()); };
+    const_iterator cbegin() { if(!this) throw std::runtime_error("iterator"); return const_iterator(this, 0); };
+    const_iterator cend() { if(!this) throw std::runtime_error("iterator"); return const_iterator(this, (*matrix_).rows().size()); };
+    std::size_t size() { if(!this) throw std::runtime_error("iterator"); return (*matrix_)[col_].size(); }
 };
 
 /**
@@ -101,9 +101,8 @@ public:
     reference operator*() { return (*col_)[col_]; };
     pointer operator->() { return &((*col_)[col_]); };
 
-    /*! TODO : compare col_ */
-    bool operator!=(const_vertical_iterator<T> it) const { return row_ != it.row_; };
-    bool operator==(const_vertical_iterator<T> it) const { return row_ == it.row_; };
+    bool operator!=(const_vertical_iterator<T> it) const { return row_ != it.row_ && col_ == it.col_; };
+    bool operator==(const_vertical_iterator<T> it) const { return row_ == it.row_ && col_ == it.col_; };
 
     std::size_t operator++() { if (*this == (*col_).cend()) throw std::range_error("iterator out of range"); return ++row_; };
     std::size_t operator++(int) { if (*this == (*col_).cend()) throw std::range_error("iterator out of range"); return ++row_; };
@@ -133,8 +132,8 @@ public:
     reference operator*() { return (*col_)[row_]; };
     pointer operator->() { return &((*col_)[row_]); };
     
-    bool operator!=(vertical_iterator<T> it) const { return row_ != it.row_; };
-    bool operator==(vertical_iterator<T> it) const { return row_ == it.row_; };
+    bool operator!=(vertical_iterator<T> it) const { return row_ != it.row_ && col_ == it.col_; };
+    bool operator==(vertical_iterator<T> it) const { return row_ == it.row_ && col_ == it.col_; };
     
     std::size_t operator++() { if (*this == (*col_).end()) throw std::range_error("iterator out of range"); return ++row_; };
     std::size_t operator++(int) { if (*this == (*col_).end()) throw std::range_error("iterator out of range"); return ++row_; };
@@ -154,7 +153,11 @@ class matrix
     std::vector<column_reference<T>> column_reference_;
     std::size_t rows_;
     std::size_t cols_;
-    
+
+    void renew_references_() {
+        column_reference_.clear();
+        for (unsigned i = 0; i < cols_; ++i) column_reference_.push_back(column_reference<T>(data_, i));
+    }
 public:
     typedef std::vector<std::vector<T>> rows_t;
     typedef std::vector<column_reference<T>> cols_t;
@@ -162,13 +165,8 @@ public:
     matrix() : rows_(0), cols_(0) { };
     matrix(std::size_t rows, std::size_t cols, T default_value = T());
     
-    /**
-     * I really love Microsoft compiler -> no default support (yet)
-     * matrix(const matrix<T> &matrix) = default;
-     * matrix(matrix<T> && matrix) = default;
-     */
-    matrix(const matrix<T> &matrix) : data_(matrix.data_), column_reference_(matrix.column_reference_), rows_(matrix.rows_), cols_(matrix.cols_) { };
-    matrix(matrix<T> && matrix) : data_(std::move(matrix.data_)), column_reference_(std::move(matrix.column_reference_)), rows_(matrix.rows_), cols_(matrix.cols_) { };
+    matrix(const matrix<T> &matrix) : data_(matrix.data_), rows_(matrix.rows_), cols_(matrix.cols_) { renew_references_(); };
+    matrix(matrix<T> && matrix) : data_(std::move(matrix.data_)), rows_(matrix.rows_), cols_(matrix.cols_) { renew_references_(); };
 
     /**
      * Tricky - this save me few lines
@@ -200,7 +198,7 @@ matrix<T>::matrix(std::size_t rows, std::size_t cols, T default_value) : rows_(r
 {
     std::vector<T> row(cols, default_value);
     data_ = std::vector<std::vector<T>>(rows, row);
-    for (unsigned i = 0; i < cols; ++i) column_reference_.push_back(column_reference<T>(this, i));
+    renew_references_();
 }
 
 /**
@@ -217,8 +215,7 @@ matrix<T>& matrix<T>::operator=(matrix<T> && matrix)
     data_.resize(rows_, std::vector<T>(cols_));
 
     // Refresh row_references
-    column_reference_.clear();
-    for (unsigned i = 0; i < cols_; ++i) column_reference_.push_back(column_reference<T>(this, i));
+    renew_references_();
 
     return *this;
 }
